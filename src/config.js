@@ -1,5 +1,5 @@
-import {preload} from "./preload.js";
-import {create} from "./create.js";
+import levelOne from "./levelOne.js";
+import levelTwo from "./level2.js";
 
 export const screenWidth = 1200;
 export const screenHeight = 800;
@@ -9,9 +9,6 @@ export const defaultConfig = {
     parent: 'phaser-example',
     width: screenWidth,
     height: screenHeight,
-    scene: {
-        preload: preload,
-        create: create
-    }
-};
+    scene: [levelOne.LevelOne, levelTwo.LevelTwo]
 
+};
