@@ -8,7 +8,7 @@ class LevelTwo extends Phaser.Scene {
     }
 
     create() {
-        keyboard.setupKeyboard(this);
+        console.log('level 2 create');
 
     }
 

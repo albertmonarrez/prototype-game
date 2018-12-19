@@ -1,18 +1,31 @@
-import pauseMenu from './levelOne.js';
+import pauseMenu from './homeScene.js';
 import level2 from './level2.js';
 
-function setupKeyboard(self) {
-    self.input.keyboard.on('keyup', checkKeys, self);
+const KEYFUNCTIONMAP = {};
+
+class Keyboard {
+    constructor(scene, keyFunctionMap = KEYFUNCTIONMAP) {
+        this.scene = scene;
+        this.keyFunctionMap = keyFunctionMap;
+        this.setupKeyboard();
+    }
+
+    setupKeyboard() {
+        this.scene.input.keyboard.on('keyup', this.executeKeyAction,this);
+    }
+
+    executeKeyAction(keyboard) {
+        let func = this.keyFunctionMap[keyboard.key];
+        if (func) {
+            func(this);
+            return;
+
+        }
+        console.log("No function associated with " + keyboard.key);
+    }
 
 }
 
-function checkKeys(keyboard) {
-    let func = KEYFUNCTIONMAP[keyboard.key];
-    if (func)
-        func(this);
-}
-
-const KEYFUNCTIONMAP = {'Escape': switchScene};
 
 function switchScene(self) {
     let currentScene = self.scene.key;
@@ -23,4 +36,4 @@ function switchScene(self) {
     self.scene.start(scene);
 }
 
-export default {setupKeyboard};
+export default {Keyboard};
