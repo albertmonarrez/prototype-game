@@ -68,7 +68,7 @@ class MenuFactory {
 
     createMenu() {
         let textArray = [];
-        let defaultStyle = {fill: '#ffffff', align: 'center', lineSpacing: 6,};
+        let defaultStyle = {fill: '#ffffff', align: 'center', lineSpacing: 6, stroke: '#000000', strokeThickness: 4};
         let spacing = 24;
         let defaultX = this.gameScene.sys.game.config.width / 2;
         let defaultY = this.gameScene.sys.game.config.height / 2;

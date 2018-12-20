@@ -9,6 +9,7 @@ bootScene.preload = function () {
     this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
     this.load.audio('tape', 'assets/tape.ogg');
     this.load.audio('menuclick', 'assets/basicclick.wav');
+    this.load.image('environment', 'assets/environment.png');
 
 
 };

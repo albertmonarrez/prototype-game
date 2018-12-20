@@ -8,6 +8,10 @@ let homeScene = new Phaser.Scene('Home');
 homeScene.create = function () {
     utils.loadBackground(this);
     let width = utils.getScreenCenterWidth();
+    this.environment = this.add.tileSprite(0, 0, 1200, 800, 'environment')
+    this.environment.setOrigin(0,0);
+    this.environment.alpha = 0.03;
+    this.environment.setScale(3.5);
     let logo = this.add.image(width, 300, 'superlogo');
     logo.setScale(1.5);
 
@@ -16,6 +20,7 @@ homeScene.create = function () {
         this.scene.start('LevelTwo');
     });
     menuFactory.addMenuItem('View High Scores');
+    menuFactory.addMenuItem('Some more text');
     let selectMenu = menuFactory.createMenu();
     let keyFunctionMap = {
         'ArrowUp': su.playSound(selectMenu.previous.bind(selectMenu), 'menuclick', this),
@@ -27,6 +32,10 @@ homeScene.create = function () {
     this.sound.play('tape');
 
 }
+homeScene.update = function () {
+    this.environment.tilePositionX+= 1;
+
+};
 
 
 export default {homeScene};
