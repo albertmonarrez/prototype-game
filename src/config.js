@@ -1,5 +1,5 @@
 import home from "./homeScene.js";
-import levelTwo from "./level2.js";
+import levelOne from "./level1.js";
 import bootScene from "./boot.js";
 import loading from "./loading.js";
 
@@ -11,7 +11,15 @@ export const defaultConfig = {
     parent: 'phaser-example',
     width: screenWidth,
     height: screenHeight,
-    //pixelArt: true,
-    scene: [bootScene.bootScene, home.homeScene, levelTwo.LevelTwo]
+    pixelArt: true,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: {y: 1000},
+            debug: true
+        }
+    },
+    scene: [bootScene.bootScene, home.homeScene, levelOne.LevelOne],
+
 
 };

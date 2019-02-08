@@ -10,6 +10,9 @@ bootScene.preload = function () {
     this.load.audio('tape', 'assets/tape.ogg');
     this.load.audio('menuclick', 'assets/basicclick.wav');
     this.load.image('environment', 'assets/environment.png');
+    this.load.image('dude', 'assets/dude.png');
+    this.load.atlas('atlas', 'assets/atlas.png', 'assets/json/atlas.json');
+    this.load.image('backsky', 'assets/environment/back.png');
 
 
 };
