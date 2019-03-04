@@ -1,11 +1,10 @@
-'use strict';
-
 const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
 
     entry: './src/game.js',
+    mode: 'development',
 
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -15,10 +14,10 @@ module.exports = {
 
     module: {
         rules: [
-          {
-            test: [ /\.vert$/, /\.frag$/ ],
-            use: 'raw-loader'
-          }
+            {
+                test: [/\.vert$/, /\.frag$/],
+                use: 'raw-loader'
+            }
         ]
     },
 
