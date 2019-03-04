@@ -1,4 +1,4 @@
-import {screenHeight, screenWidth} from "./config.js";
+// import {screenHeight, screenWidth} from "./config";
 
 function loadBackground(self) {
 
@@ -61,7 +61,7 @@ const addBackground = (backgroundName, gameScene, fitToScreen = true) => {
 
 }
 
-export default {
+export  {
     loadBackground,
     addBackground,
     calculateScaleToFillScreen,
