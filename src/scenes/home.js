@@ -1,13 +1,14 @@
-import utils from "./utils.js";
-import keyboard from "./keyboard.js";
-import menu from "./menu.js";
-import su from "./soundutils.js";
+import {getScreenCenterWidth} from "../utils";
+import {loadBackground} from "../backgroundutils";
+import keyboard from "../keyboard";
+import menu from "../menu";
+import su from "../soundutils";
 
-let homeScene = new Phaser.Scene('Home');
+let home = new Phaser.Scene('Home');
 
-homeScene.create = function () {
-    utils.loadBackground(this);
-    let width = utils.getScreenCenterWidth();
+home.create = function () {
+    loadBackground(this);
+    let width = getScreenCenterWidth();
     this.environment = this.add.tileSprite(0, 0, 1200, 800, 'environment')
     this.environment.setOrigin(0, 0);
     this.environment.alpha = 0.03;
@@ -32,10 +33,10 @@ homeScene.create = function () {
     this.sound.play('tape');
 
 }
-homeScene.update = function () {
+home.update = function () {
     this.environment.tilePositionX += 1;
 
 };
 
 
-export default {homeScene};
+export default {homeScene: home};

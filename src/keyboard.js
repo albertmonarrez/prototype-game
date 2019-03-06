@@ -1,6 +1,3 @@
-import pauseMenu from './homeScene.js';
-import level2 from './level1.js';
-
 const KEYFUNCTIONMAP = {};
 
 class Keyboard {

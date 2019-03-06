@@ -1,18 +1,23 @@
-import * as config from './config.js';
+import {screenHeight, screenWidth} from "./constants";
+import bootScene from "./scenes/boot";
+import home from "./scenes/home";
+import levelOne from "./scenes/level1";
 
-var WebFontConfig = {
-
-    //  'active' means all requested fonts have finished loading
-    //  We set a 1 second delay before calling 'createText'.
-    //  For some reason if we don't the browser cannot render the text the first time it's created.
-    active: function () {
-        game.time.events.add(Phaser.Timer.SECOND, createText, this);
+const defaultConfig = {
+    type: Phaser.AUTO,
+    parent: 'phaser-example',
+    width: screenWidth,
+    height: screenHeight,
+    pixelArt: true,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: {y: 1000},
+            debug: true
+        }
     },
+    scene: [bootScene.bootScene, home.homeScene, levelOne.LevelOne],
 
-    //  The Google Fonts we want to load (specify as many as you like in the array)
-    google: {
-        families: ['Revalia', 'VT323']
-    }
 
 };
-let game = new Phaser.Game(config.defaultConfig);
+let game = new Phaser.Game(defaultConfig);

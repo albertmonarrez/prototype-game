@@ -1,6 +1,5 @@
-import keyboard from "./keyboard.js";
-import mix from "./mixins.js";
-import utils from "./utils.js";
+import mix from "../mixins.js";
+import {addBackground} from "../backgroundutils";
 
 
 class PhaserSceneMix extends mix.mixinAdder(Phaser.Scene).with(mix.ScreenMixin) {
@@ -22,7 +21,7 @@ levelOne.create = function () {
     let ground = this.addFloor();
     this.floorCollision.add(ground);
     this.physics.add.collider(this.player, this.floorCollision);
-    utils.addBackground('backsky', this);
+    addBackground('backsky', this);
     this.cursors = this.input.keyboard.createCursorKeys();
 
 
