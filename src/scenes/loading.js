@@ -1,11 +1,11 @@
-let loadScene = new Phaser.Scene('Boot');
+let bootScene = new Phaser.Scene('Boot');
 
-loadScene.preload = function () {
+bootScene.preload = function () {
     console.log('loading!');
 };
 
-loadScene.create = function () {
+bootScene.create = function () {
     this.scene.start('LevelOne');
 };
 
-export default {bootScene: loadScene};
+export {bootScene};

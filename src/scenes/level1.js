@@ -1,10 +1,4 @@
-import mix from "../mixins.js";
-import {addBackground} from "../backgroundutils";
-
-
-class PhaserSceneMix extends mix.mixinAdder(Phaser.Scene).with(mix.ScreenMixin) {
-
-}
+import {PhaserSceneMix} from "../phaserGenericMixins";
 
 
 let levelOne = new PhaserSceneMix('LevelOne');
@@ -13,26 +7,26 @@ levelOne.init = function () {
     this.playerSpeed = 300;
     this.jumpSpeed = 500;
 
-}
+};
 
 levelOne.create = function () {
-    this.floorCollision = this.add.group()
+    this.floorCollision = this.add.group();
     this.player = this.createPlayer(0, this.getScreenHeight() - 220);
     let ground = this.addFloor();
     this.floorCollision.add(ground);
     this.physics.add.collider(this.player, this.floorCollision);
-    addBackground('backsky', this);
+    this.addBackground('backsky');
     this.cursors = this.input.keyboard.createCursorKeys();
 
 
-}
+};
 levelOne.addFloor = function () {
     let floorHeight = this.textures.get('platform').get().height;
     let ground = this.add.tileSprite(10, this.getScreenHeight() - floorHeight - 5, this.getScreenWidth(), floorHeight, 'platform').setOrigin(0, 0);
     this.physics.add.existing(ground, true);
     return ground;
 
-}
+};
 
 levelOne.createPlayer = function (x, y) {
     let player = this.physics.add.image(x, y, 'atlas', 'player/idle/player-idle-1').setOrigin(0, 0);
@@ -91,4 +85,4 @@ levelOne.update = function () {
 };
 
 
-export default {LevelOne: levelOne};
+export {levelOne};

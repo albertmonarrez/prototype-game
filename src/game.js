@@ -1,7 +1,7 @@
 import {screenHeight, screenWidth} from "./constants";
-import bootScene from "./scenes/boot";
-import home from "./scenes/home";
-import levelOne from "./scenes/level1";
+import {bootScene} from "./scenes/boot";
+import {homeScene} from "./scenes/home";
+import {levelOne} from "./scenes/level1";
 
 const defaultConfig = {
     type: Phaser.AUTO,
@@ -16,7 +16,7 @@ const defaultConfig = {
             debug: true
         }
     },
-    scene: [bootScene.bootScene, home.homeScene, levelOne.LevelOne],
+    scene: [bootScene, homeScene, levelOne],
 
 
 };

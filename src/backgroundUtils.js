@@ -6,10 +6,9 @@ import {
 } from "./utils";
 import {screenHeight} from "./constants";
 
-function loadBackground(self) {
-
+function loadBackground(gamescene) {
     let imageName = "sky";
-    let background = self.add.image(getScreenCenterWidth(), getScreenCenterHeight(), imageName);
+    let background = gamescene.add.image(getScreenCenterWidth(), getScreenCenterHeight(), imageName);
     let scaleWidth = calculateScaleToFillScreen(background.width, screenWidth);
     let scaleHeight = calculateScaleToFillScreen(background.height, screenHeight);
     background.setScale(scaleWidth, scaleHeight);
@@ -32,6 +31,7 @@ const addBackground = (backgroundName, gameScene, fitToScreen = true) => {
         background.setScale(gameWidth / background.width, gameHeight / background.height);
     return background;
 
-}
+};
+
 export {addBackground};
 export {loadBackground};

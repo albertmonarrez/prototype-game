@@ -21,4 +21,4 @@ bootScene.create = function () {
     this.scene.start('Home');
 };
 
-export default {bootScene};
+export {bootScene};
